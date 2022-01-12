@@ -92,52 +92,52 @@ const data = [
   }
 ];
 
-function articleMaker (data){
+function articleMaker (artObj){
 // instantiate elements for article
-const article = document.createElement('div');
-const title = document.createElement('h2');
-const date = document.createElement('p');
-const firstParagraph = document.createElement('p');
-const secondParagraph = document.createElement('p');
-const thirdParagraph = document.createElement('p');
+const articleWrapper = document.createElement('div');
+const artTitle = document.createElement('h2');
+const artDate = document.createElement('p');
+const artFirstParagraph = document.createElement('p');
+const artSecondParagraph = document.createElement('p');
+const artThirdParagraph = document.createElement('p');
 const expandButton = document.createElement('span')
-const openButton = document.createElement('button')
-const closeButton = document.createElement('button')
-// append elements to the article to structure it 
-article.appendChild(title);
-article.appendChild(date);
-article.appendChild(firstParagraph);
-article.appendChild(secondParagraph);
-article.appendChild(thirdParagraph);
-article.appendChild(expandButton);
-expandButton.appendChild(openButton);
-expandButton.appendChild(closeButton);
-// adding class names to elements
-article.classList.add('articles')
-title.classList.add('header')
-expandButton.classList.add('menu-button')
-openButton.classList.add('menu-button-open');
-closeButton.classList.add('menu-button-close', 'hide-btn')
-// setting text content
-title.textContent = data.title;
-date.textContent = data.date;
-firstParagraph.textContent = data.firstParagraph
-secondParagraph.textContent = date.secondParagraph
-thirdParagraph.textContent = data.thirdParagraph
-openButton.textContent = open;
-closeButton.textContent = close;
-// adding event listener
-expandButton.addEventListener('click', evt =>{
-openButton.classList.toggle('hide-btn');
-closeButton.classList.toggle('hide-btn')
-article.classList.toggle('article-open')
-})
-return article
-}
 
-const articleElms = data.map(data=>{
-  return articleMaker(data);
+// append elements to the article to structure it
+
+articleWrapper.appendChild(artTitle);
+articleWrapper.appendChild(artDate);
+articleWrapper.appendChild(artFirstParagraph);
+articleWrapper.appendChild(artSecondParagraph);
+articleWrapper.appendChild(artThirdParagraph);
+articleWrapper.appendChild(expandButton);
+
+// adding class names to elements
+articleWrapper.classList.add('article')
+artDate.classList.add('date')
+expandButton.classList.add('expandButton')
+
+// setting text content
+artTitle.textContent = artObj.title;
+artDate.textContent = artObj.date;
+artFirstParagraph.textContent = artObj.firstParagraph
+artSecondParagraph.textContent = artObj.secondParagraph
+artThirdParagraph.textContent = artObj.thirdParagraph
+expandButton.textContent = '+';
+// adding event listener
+expandButton.addEventListener('click', () =>{
+  articleWrapper.classList.toggle('article-open');
 })
+return articleWrapper
+}
+ data.forEach(article =>{
+   document.querySelector('div.articles').appendChild(articleMaker(article))
+ })
+
+// const articleWrapper = document.querySelector('div.articles');
+// const articleList = articleMaker(article);
+// articleWrapper.appendChild(articleList);
+
+
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
