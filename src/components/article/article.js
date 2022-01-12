@@ -90,17 +90,43 @@ const data = [
   }
 ];
 
-function articleMaker (article){
-const article = document.createElement('p');
+function articleMaker (data){
+// instantiate elements for article
+const article = document.createElement('div');
+const title = document.createElement('h2');
+const date = document.createElement('p');
+const firstParagraph = document.createElement('p');
+const secondParagraph = document.createElement('p');
+const thirdParagraph = document.createElement('p');
+const expandButton = document.createElement('span')
+const openButton = document.createElement('button')
+const closeButton = document.createElement('button')
+// append elements to the article to structure it 
+article.appendChild(title);
+article.appendChild(date);
+article.appendChild(firstParagraph);
+article.appendChild(secondParagraph);
+article.appendChild(thirdParagraph);
+article.appendChild(expandButton);
+// adding class names to elements
+article.classList.add('articles')
+title.classList.add('header')
+expandButton.classList.add('menu-button')
+openButton.classList.add('menu-button-open');
+closeButton.classList.add('menu-button-close', 'hide-btn')
+// setting text content
+title.textContent = data.title;
+date.textContent = data.date;
+firstParagraph.textContent = data.firstParagraph
+secondParagraph.textContent = date.secondParagraph
+thirdParagraph.textContent = data.thirdParagraph
+openButton.textContent = open;
+closeButton.textContent = close;
+// adding event listener
+expandButton.addEventListener('click', evt =>{
 
-article.src = firstParagraph
+})
 }
-
-
-
-
-
-
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
