@@ -90,6 +90,18 @@ const data = [
   }
 ];
 
+function articleMaker (article){
+const article = document.createElement('p');
+
+article.src = firstParagraph
+}
+
+
+
+
+
+
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -99,7 +111,7 @@ const data = [
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
 
-    {three separate paragraph elements}
+    <p></p> <p></p> <p></p>
 
     <span class="expandButton">+</span>
   </div>
