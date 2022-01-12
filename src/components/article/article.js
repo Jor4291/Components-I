@@ -1,4 +1,6 @@
 import './article.less'
+
+
 // This is the data we will be using to create our articles. Look at it, then proceed to line 93.
 // OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
 // You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
@@ -108,6 +110,8 @@ article.appendChild(firstParagraph);
 article.appendChild(secondParagraph);
 article.appendChild(thirdParagraph);
 article.appendChild(expandButton);
+expandButton.appendChild(openButton);
+expandButton.appendChild(closeButton);
 // adding class names to elements
 article.classList.add('articles')
 title.classList.add('header')
@@ -124,9 +128,16 @@ openButton.textContent = open;
 closeButton.textContent = close;
 // adding event listener
 expandButton.addEventListener('click', evt =>{
-
+openButton.classList.toggle('hide-btn');
+closeButton.classList.toggle('hide-btn')
+article.classList.toggle('article-open')
 })
+return article
 }
+
+const articleElms = data.map(data=>{
+  return articleMaker(data);
+})
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
